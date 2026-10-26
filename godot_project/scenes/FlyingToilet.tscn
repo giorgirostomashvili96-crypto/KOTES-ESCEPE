@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://f4t7k9u2m1w0c"]
+
+[ext_resource type="Script" path="res://scripts/FlyingToilet.gd" id="1_toilet"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(80, 52)
+
+[node name="FlyingToilet" type="Area2D"]
+collision_layer = 4
+collision_mask = 1
+script = ExtResource("1_toilet")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1")

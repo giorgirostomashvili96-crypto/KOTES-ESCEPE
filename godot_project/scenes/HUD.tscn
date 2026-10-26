@@ -1,0 +1,547 @@
+[gd_scene load_steps=3 format=3 uid="uid://h5u7k1m8w2x0f"]
+
+[ext_resource type="Script" path="res://scripts/HUD.gd" id="1_hud"]
+[ext_resource type="Texture2D" path="res://assets/sprites/title_menu_bg.png" id="2_bg"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_hud")
+
+[node name="TopBar" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 90.0
+grow_horizontal = 2
+
+[node name="ScoreLabel" type="Label" parent="TopBar"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 20.0
+offset_right = 260.0
+offset_bottom = 56.0
+theme_override_font_sizes/font_size = 24
+text = "ქულა: 0"
+
+[node name="CoinsLabel" type="Label" parent="TopBar"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 56.0
+offset_right = 200.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.98, 0.75, 0.14, 1)
+text = "🧻 100"
+
+[node name="LevelLabel" type="Label" parent="TopBar"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.0
+offset_top = 16.0
+offset_right = 160.0
+offset_bottom = 44.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.96, 0.88, 0.54, 1)
+text = "დონე 1: უბნის ქუჩა"
+horizontal_alignment = 1
+
+[node name="DistLabel" type="Label" parent="TopBar"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 46.0
+offset_right = 100.0
+offset_bottom = 78.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 22
+text = "0 მ"
+horizontal_alignment = 1
+
+[node name="MultiplierLabel" type="Label" parent="TopBar"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -140.0
+offset_top = 20.0
+offset_right = -32.0
+offset_bottom = 56.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(0.98, 0.75, 0.14, 1)
+text = "x1"
+horizontal_alignment = 2
+
+[node name="FeverBar" type="ProgressBar" parent="TopBar"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -180.0
+offset_top = -10.0
+offset_right = 180.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+value = 0.0
+show_percentage = false
+
+[node name="ThreatWarning" type="Label" parent="."]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -180.0
+offset_top = 105.0
+offset_right = 180.0
+offset_bottom = 135.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.94, 0.27, 0.27, 1)
+text = "⚠️ მდევარი ახლოსაა!"
+horizontal_alignment = 1
+
+[node name="ToastLabel" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -180.0
+offset_right = 220.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.98, 0.75, 0.14, 1)
+horizontal_alignment = 1
+
+[node name="MobileControls" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="JumpBtn" type="Button" parent="MobileControls"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -210.0
+offset_top = -180.0
+offset_right = -40.0
+offset_bottom = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 22
+text = "▲ ნახტომი\n(SPACE / W)"
+
+[node name="SlideBtn" type="Button" parent="MobileControls"]
+layout_mode = 1
+anchors_preset = 2
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -180.0
+offset_right = 210.0
+offset_bottom = -40.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 22
+text = "▼ ჩაცურება\n(DOWN / S)"
+
+[node name="TrapBtn" type="Button" parent="MobileControls"]
+layout_mode = 1
+anchors_preset = 2
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+offset_left = 230.0
+offset_top = -140.0
+offset_right = 340.0
+offset_bottom = -40.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 18
+text = "🍌 ბანანი\n(B)"
+
+[node name="BoostBtn" type="Button" parent="MobileControls"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -340.0
+offset_top = -140.0
+offset_right = -230.0
+offset_bottom = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 18
+text = "🦴 ძვალი\n(E)"
+
+[node name="TitlePanel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="TitlePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bg")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TopNav" type="HBoxContainer" parent="TitlePanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -460.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 60.0
+grow_horizontal = 0
+alignment = 2
+
+[node name="SkinsTopBtn" type="Button" parent="TitlePanel/TopNav"]
+layout_mode = 2
+text = "👗 სკინების მაღაზია"
+
+[node name="LevelsTopBtn" type="Button" parent="TitlePanel/TopNav"]
+layout_mode = 2
+text = "⭐ დონეები"
+
+[node name="SettingsTopBtn" type="Button" parent="TitlePanel/TopNav"]
+layout_mode = 2
+text = "⚙️ პარამეტრები"
+
+[node name="StartGameBtn" type="Button" parent="TitlePanel"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 400.0
+offset_right = 320.0
+offset_bottom = 460.0
+theme_override_font_sizes/font_size = 20
+text = "თამაშის დაწყება 🚀"
+
+[node name="SkinsMenuBtn" type="Button" parent="TitlePanel"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 470.0
+offset_right = 320.0
+offset_bottom = 530.0
+theme_override_font_sizes/font_size = 18
+text = "პერსონაჟის არჩევა 👗"
+
+[node name="SettingsMenuBtn" type="Button" parent="TitlePanel"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 540.0
+offset_right = 320.0
+offset_bottom = 600.0
+theme_override_font_sizes/font_size = 18
+text = "პარამეტრები ⚙️"
+
+[node name="SkinShopPanel" type="Panel" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -420.0
+offset_top = -260.0
+offset_right = 420.0
+offset_bottom = 260.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header" type="Control" parent="SkinShopPanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 60.0
+grow_horizontal = 2
+
+[node name="Title" type="Label" parent="SkinShopPanel/Header"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 16.0
+offset_right = 380.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 22
+theme_override_colors/font_color = Color(0.98, 0.75, 0.14, 1)
+text = "👕 კოტეს სკინების მაღაზია (9 სკინი)"
+
+[node name="CoinsDisplay" type="Label" parent="SkinShopPanel/Header"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -300.0
+offset_top = 16.0
+offset_right = -70.0
+offset_bottom = 48.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.98, 0.75, 0.14, 1)
+text = "🧻 ბალანსი: 100 ქოინი"
+horizontal_alignment = 2
+
+[node name="CloseBtn" type="Button" parent="SkinShopPanel/Header"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -50.0
+offset_top = 12.0
+offset_right = -16.0
+offset_bottom = 48.0
+grow_horizontal = 0
+text = "✕"
+
+[node name="SkinsScroll" type="ScrollContainer" parent="SkinShopPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 70.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SkinsGrid" type="GridContainer" parent="SkinShopPanel/SkinsScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
+columns = 3
+
+[node name="SkinCard1" type="Button" parent="SkinShopPanel/SkinsScroll/SkinsGrid"]
+custom_minimum_size = Vector2(250, 110)
+layout_mode = 2
+text = "⭐ კლასიკური კოტე (0 🧻)\nორიგინალური ჰუდი\n[არჩეულია ✓]"
+
+[node name="SkinCard2" type="Button" parent="SkinShopPanel/SkinsScroll/SkinsGrid"]
+custom_minimum_size = Vector2(250, 110)
+layout_mode = 2
+text = "🎄 საახალწლო კოტე (50 🧻)\nწითელი სვიტრი & ფიფქები\n[+50% ქოინების ბონუსი]"
+
+[node name="SkinCard3" type="Button" parent="SkinShopPanel/SkinsScroll/SkinsGrid"]
+custom_minimum_size = Vector2(250, 110)
+layout_mode = 2
+text = "🎃 ჰელოუინის კოტე (70 🧻)\nგოგრის მისტიკური პრინტი\n[მდევარი +40px შორს]"
+
+[node name="SkinCard4" type="Button" parent="SkinShopPanel/SkinsScroll/SkinsGrid"]
+custom_minimum_size = Vector2(250, 110)
+layout_mode = 2
+text = "🏖️ საზაფხულო კოტე (80 🧻)\nჰავაური პერანგი & შორტები\n[სტარტის სპრინტ-აჩქარება]"
+
+[node name="SkinCard5" type="Button" parent="SkinShopPanel/SkinsScroll/SkinsGrid"]
+custom_minimum_size = Vector2(250, 110)
+layout_mode = 2
+text = "⚔️ კოტე ჩოხაში (100 🧻)\nვერცხლის მასრები & ხანჯალი\n[სასტარტო მაგნიტი]"
+
+[node name="SkinCard6" type="Button" parent="SkinShopPanel/SkinsScroll/SkinsGrid"]
+custom_minimum_size = Vector2(250, 110)
+layout_mode = 2
+text = "⚡ კიბერპანკ 2099 (120 🧻)\nნეონის მანათობელი სქემები\n[TRIPLE JUMP - 3 ნახტომი!]"
+
+[node name="SkinCard7" type="Button" parent="SkinShopPanel/SkinsScroll/SkinsGrid"]
+custom_minimum_size = Vector2(250, 110)
+layout_mode = 2
+text = "🚕 თბილისელი ტაქსისტი (90 🧻)\nტყავის ჟილეტი & პულტი\n[მზა ძვალი მდევრის დასაბნევად]"
+
+[node name="SkinCard8" type="Button" parent="SkinShopPanel/SkinsScroll/SkinsGrid"]
+custom_minimum_size = Vector2(250, 110)
+layout_mode = 2
+text = "🏔️ სვანური ზამთარი (110 🧻)\nსვანური შარფი & ქურთუკი\n[სასტარტო ყინულის ფარი]"
+
+[node name="SkinCard9" type="Button" parent="SkinShopPanel/SkinsScroll/SkinsGrid"]
+custom_minimum_size = Vector2(250, 110)
+layout_mode = 2
+text = "👑 ოქროს კოტე VIP (150 🧻)\n24K ოქროს სმოკინგი\n[x2 ქოინების მულტიპლიკატორი!]"
+
+[node name="SettingsPanel" type="Panel" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -200.0
+offset_right = 320.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="SettingsPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_top = 20.0
+offset_right = 200.0
+offset_bottom = 50.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 22
+theme_override_colors/font_color = Color(0.98, 0.75, 0.14, 1)
+text = "⚙️ პარამეტრები & გრაფიკა"
+horizontal_alignment = 1
+
+[node name="KoteQuote" type="Label" parent="SettingsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -60.0
+offset_right = 280.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.96, 0.88, 0.54, 1)
+text = "„არანაირი გრაფიკა არ შეცვალო ძმაო,
+კოტეს x5 ექსტრემალური პიქსელები
+ისედაც ყველაზე მაგარია! წადი ითამაშე!“"
+horizontal_alignment = 1
+
+[node name="CloseSettingsBtn" type="Button" parent="SettingsPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -55.0
+offset_right = 100.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "დახურვა"
+
+[node name="GameOverPanel" type="Panel" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -160.0
+offset_right = 220.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="GameOverPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 20.0
+offset_right = 150.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 26
+theme_override_colors/font_color = Color(0.94, 0.27, 0.27, 1)
+text = "თამაში დასრულდა!"
+horizontal_alignment = 1
+
+[node name="StatsLabel" type="Label" parent="GameOverPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -30.0
+offset_right = 180.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 18
+text = "საბოლოო ქულა: 0\nმანძილი: 0 მ"
+horizontal_alignment = 1
+
+[node name="RestartBtn" type="Button" parent="GameOverPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -65.0
+offset_right = -10.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 16
+text = "თავიდან დაწყება"
+
+[node name="SkinsFromGameOverBtn" type="Button" parent="GameOverPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -65.0
+offset_right = 160.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 16
+text = "👗 სკინები"
+
+[connection signal="button_down" from="MobileControls/JumpBtn" to="." method="_on_jump_button_down"]
+[connection signal="button_up" from="MobileControls/JumpBtn" to="." method="_on_jump_button_up"]
+[connection signal="button_down" from="MobileControls/SlideBtn" to="." method="_on_slide_button_down"]
+[connection signal="button_up" from="MobileControls/SlideBtn" to="." method="_on_slide_button_up"]
+[connection signal="pressed" from="MobileControls/TrapBtn" to="." method="_on_trap_button_down"]
+[connection signal="pressed" from="MobileControls/BoostBtn" to="." method="_on_boost_button_down"]
+[connection signal="pressed" from="TitlePanel/StartGameBtn" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="TitlePanel/SkinsMenuBtn" to="." method="_on_open_skin_shop_pressed"]
+[connection signal="pressed" from="TitlePanel/SettingsMenuBtn" to="." method="_on_open_settings_pressed"]
+[connection signal="pressed" from="TitlePanel/TopNav/SkinsTopBtn" to="." method="_on_open_skin_shop_pressed"]
+[connection signal="pressed" from="TitlePanel/TopNav/SettingsTopBtn" to="." method="_on_open_settings_pressed"]
+[connection signal="pressed" from="SkinShopPanel/Header/CloseBtn" to="." method="_on_close_skin_shop_pressed"]
+[connection signal="pressed" from="SettingsPanel/CloseSettingsBtn" to="." method="_on_close_settings_pressed"]
+[connection signal="pressed" from="GameOverPanel/RestartBtn" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="GameOverPanel/SkinsFromGameOverBtn" to="." method="_on_open_skin_shop_pressed"]

@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://m1a2i3n4k5w0g"]
+
+[ext_resource type="Script" path="res://scripts/Main.gd" id="1_main"]
+[ext_resource type="PackedScene" uid="uid://b8y1k7u3m9w0a" path="res://scenes/Player.tscn" id="2_player"]
+[ext_resource type="PackedScene" uid="uid://c2h8k4u1n8w0b" path="res://scenes/Chaser.tscn" id="3_chaser"]
+[ext_resource type="PackedScene" uid="uid://h5u7k1m8w2x0f" path="res://scenes/HUD.tscn" id="4_hud"]
+[ext_resource type="Texture2D" path="res://assets/sprites/village_bg.jpg" id="5_bg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
+size = Vector2(4000, 100)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_main")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.25, 1)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="BackgroundSprite" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(640, 360)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("5_bg")
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(640, 590)
+collision_layer = 2
+collision_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+shape = SubResource("RectangleShape2D_ground")
+
+[node name="GroundVisual" type="ColorRect" parent="Ground"]
+offset_left = -2000.0
+offset_top = -50.0
+offset_right = 2000.0
+offset_bottom = 200.0
+color = Color(0.18, 0.12, 0.08, 1)
+
+[node name="CobblestoneTop" type="ColorRect" parent="Ground"]
+offset_left = -2000.0
+offset_top = -50.0
+offset_right = 2000.0
+offset_bottom = -40.0
+color = Color(0.45, 0.35, 0.25, 1)
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+position = Vector2(340, 480)
+
+[node name="Chaser" parent="." instance=ExtResource("3_chaser")]
+position = Vector2(100, 480)
+
+[node name="HUD" parent="." instance=ExtResource("4_hud")]

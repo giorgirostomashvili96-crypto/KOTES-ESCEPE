@@ -1,0 +1,8 @@
+{
+  "name": "Remix Pixel Dash: Dog Escape 2D Runner",
+  "description": "2D platformer runner with parallax background, coin collection, escalating difficulty levels, responsive mobile touch and PC controls, and an relentless chasing guard dog.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

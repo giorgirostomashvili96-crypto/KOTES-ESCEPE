@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2h8k4u1n8w0b"]
+
+[ext_resource type="Script" path="res://scripts/Chaser.gd" id="1_chaser"]
+
+[node name="Chaser" type="Node2D"]
+script = ExtResource("1_chaser")

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3c7k8u4m2w0e"]
+
+[ext_resource type="Script" path="res://scripts/Collectible.gd" id="1_item"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1"]
+radius = 20.0
+
+[node name="Collectible" type="Area2D"]
+collision_layer = 8
+collision_mask = 1
+script = ExtResource("1_item")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1")

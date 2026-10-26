@@ -1,0 +1,27 @@
+{
+  "id": "/",
+  "name": "Kote Runner: Georgian Escape",
+  "short_name": "KoteRunner",
+  "description": "Georgian 2D platformer runner game featuring Kote, curly-haired chaser, and flying jet toilet.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "theme_color": "#18181B",
+  "background_color": "#080503",
+  "categories": ["games", "arcade"],
+  "icons": [
+    {
+      "src": "/assets/aistudio/____________419e2efa.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/aistudio/____________419e2efa.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
